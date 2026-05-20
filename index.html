@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PCPrice ajuda você a encontrar o PC ideal comparando análises, componentes e preços em lojas parceiras.">
+  <title>PCPrice | Monte o PC ideal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Voltar ao início">
+      <span>PC</span><strong>Price</strong><i></i>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#comparador">Comparador</a>
+      <a href="#recomendador">Recomendador</a>
+      <a href="#lojas">Lojas</a>
+      <a href="#alertas">Alertas</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Alternar tema claro ou escuro">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a class="btn btn-primary" href="#recomendador">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        Montar PC
+      </a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Comparador inteligente de hardware</p>
+        <h1>Encontre o PC ideal com análise, preço e loja confiável.</h1>
+        <p class="hero-text">
+          Compare PCs montados, veja desempenho estimado por uso e descubra onde comprar em parceiros como Kabum, Pichau, Terabyte, Amazon, Shopee e mais.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#comparador">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            Comparar ofertas
+          </a>
+          <a class="btn btn-secondary btn-lg" href="#recomendador">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            Receber recomendação
+          </a>
+        </div>
+        <div class="hero-metrics" aria-label="Métricas do PCPrice">
+          <div><strong id="metricPcCount">0</strong><span>PCs analisados</span></div>
+          <div><strong>9</strong><span>lojas parceiras</span></div>
+          <div><strong>24h</strong><span>monitoramento</span></div>
+        </div>
+      </div>
+
+      <aside class="deal-panel" aria-label="Oferta em destaque">
+        <div class="deal-top">
+          <span>Melhor custo-benefício</span>
+          <b id="heroDealBadge">ao vivo</b>
+        </div>
+        <img id="heroDealImage" src="" alt="">
+        <div class="deal-body">
+          <p class="deal-tier" id="heroDealTier"></p>
+          <h2 id="heroDealName"></h2>
+          <div class="deal-specs" id="heroDealSpecs"></div>
+          <div class="deal-bottom">
+            <div>
+              <small>menor preço encontrado</small>
+              <strong id="heroDealPrice"></strong>
+            </div>
+            <button class="btn btn-primary" id="heroDealButton" type="button">
+              Ver análise
+            </button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="ticker" aria-label="Preços monitorados">
+      <div id="tickerTrack"></div>
+    </section>
+
+    <section class="section-shell partner-strip" id="lojas">
+      <div>
+        <p class="eyebrow"><span></span> Lojas parceiras</p>
+        <h2>Busca em vários marketplaces de hardware.</h2>
+      </div>
+      <div class="partner-grid" id="partnerGrid"></div>
+    </section>
+
+    <section class="section-shell" id="comparador">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span></span> Comparador</p>
+          <h2>Escolha por preço, uso e desempenho.</h2>
+        </div>
+        <p class="section-note">Dados simulados para protótipo. Troque por API real quando integrar lojas.</p>
+      </div>
+
+      <div class="tool-bar" role="search">
+        <label class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input id="searchInput" type="search" placeholder="Buscar: RTX 4070, Ryzen 5, edição, estudos...">
+        </label>
+        <select id="budgetFilter" aria-label="Filtrar por orçamento">
+          <option value="all">Todos os orçamentos</option>
+          <option value="2500">Até R$ 2.500</option>
+          <option value="5000">Até R$ 5.000</option>
+          <option value="8000">Até R$ 8.000</option>
+          <option value="12000">Até R$ 12.000</option>
+        </select>
+        <select id="storeFilter" aria-label="Filtrar por loja">
+          <option value="all">Todas as lojas</option>
+        </select>
+        <select id="sortSelect" aria-label="Ordenar resultados">
+          <option value="best">Melhor análise</option>
+          <option value="price">Menor preço</option>
+          <option value="gaming">Gaming</option>
+          <option value="work">Trabalho</option>
+          <option value="creator">Criação</option>
+          <option value="discount">Maior desconto</option>
+        </select>
+      </div>
+
+      <div class="result-meta">
+        <span id="resultCount">0 PCs encontrados</span>
+        <button class="text-btn" id="clearFilters" type="button">Limpar filtros</button>
+      </div>
+
+      <div class="pc-grid" id="pcGrid"></div>
+    </section>
+
+    <section class="section-shell recommendation" id="recomendador">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span></span> Recomendador</p>
+          <h2>Monte uma indicação rápida para o seu perfil.</h2>
+        </div>
+      </div>
+
+      <div class="reco-layout">
+        <form class="reco-form" id="recoForm">
+          <label>
+            Uso principal
+            <select id="useSelect">
+              <option value="gaming">Jogos e alto FPS</option>
+              <option value="work">Trabalho, estudo e produtividade</option>
+              <option value="creator">Edição, design e criação</option>
+              <option value="balanced">Uso misto</option>
+            </select>
+          </label>
+          <label>
+            Orçamento máximo
+            <input id="budgetInput" type="number" min="1500" step="100" value="5000">
+          </label>
+          <label>
+            Loja preferida
+            <select id="preferredStore"></select>
+          </label>
+          <button class="btn btn-primary btn-lg" type="submit">
+            <i class="fa-solid fa-bolt"></i>
+            Encontrar meu PC
+          </button>
+        </form>
+
+        <div class="reco-result" id="recoResult" aria-live="polite">
+          <p class="empty-title">Preencha seu perfil</p>
+          <p>O PCPrice vai priorizar preço, desempenho e disponibilidade nas lojas parceiras.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell insights">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span></span> Análises</p>
+          <h2>Critérios que ajudam na compra.</h2>
+        </div>
+      </div>
+      <div class="insight-grid">
+        <article>
+          <i class="fa-solid fa-gauge-high"></i>
+          <h3>Desempenho por uso</h3>
+          <p>Notas separadas para jogos, trabalho e criação evitam comprar potência errada para o seu objetivo.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-tags"></i>
+          <h3>Preço real comparado</h3>
+          <p>Cada PC mostra menor preço, desconto e variação entre lojas parceiras.</p>
+        </article>
+        <article>
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Compra mais segura</h3>
+          <p>Priorizamos lojas conhecidas e sinalizamos opções para marketplace, varejo e hardware especializado.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell alert-section" id="alertas">
+      <div>
+        <p class="eyebrow"><span></span> Alertas</p>
+        <h2>Receba aviso quando o preço cair.</h2>
+        <p>Cadastre produto, preço alvo e loja preferida para acompanhar promoções.</p>
+      </div>
+      <form class="alert-form" id="alertForm">
+        <input type="text" placeholder="Produto: RTX 4060, Ryzen 7..." required>
+        <input type="number" placeholder="Preço alvo" min="1" required>
+        <input type="email" placeholder="Seu e-mail" required>
+        <button class="btn btn-primary" type="submit">
+          <i class="fa-solid fa-bell"></i>
+          Criar alerta
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <div class="pc-modal" id="pcModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-content">
+      <button class="icon-btn modal-close" id="modalClose" type="button" aria-label="Fechar modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="brand">
+      <span>PC</span><strong>Price</strong><i></i>
+    </div>
+    <p>Comparador de hardware para montar o PC ideal com análise e busca em lojas parceiras.</p>
+    <small>Protótipo visual. Preços meramente informativos.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
