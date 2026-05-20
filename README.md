@@ -6,6 +6,7 @@ O **PCPrice** é um protótipo funcional de um comparador inteligente de hardwar
 ---
 
 ## 🚀 Demonstração
+https://isaacfirmino.github.io/Portfolio/
 
 > 💡 **Nota do Protótipo:** Atualmente, os dados dos computadores e os preços exibidos são simulados estaticamente para fins de demonstração da interface e lógica de front-end. O sistema está preparado para receber uma API real de integração de marketplaces.
 
@@ -80,13 +81,3 @@ cd PCPrice
 ## 📝 Licença
 
 Este projeto é livre para fins de estudo e portfólio. Sinta-se à vontade para clonar, modificar e utilizar o código.
-
-```
-
----
-
-### 💡 Dicas para o seu Repositório:
-1. **Adicione um Print/GIF:** Na linha onde diz `## 🚀 Demonstração`, tire um print da tela do seu projeto rodando (ou grave um GIF rápido mexendo nele) e coloque o link da imagem ali. Isso aumenta drasticamente o engajamento do projeto.
-2. **Suba no GitHub Pages:** Como esse projeto é puramente estático (`HTML/CSS/JS`), você pode ativar o **GitHub Pages** nas configurações do repositório para gerar um link online onde as pessoas possam testar seu projeto na hora. Se fizer isso, adicione o link gerado na descrição do repositório!
-
-```
